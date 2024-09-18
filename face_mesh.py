@@ -2,7 +2,7 @@ import cv2
 import time
 import mediapipe as mp
 
-cap = cv2.VideoCapture("13801223-uhd_2160_3840_24fps.mp4")
+cap = cv2.VideoCapture(0)
 
 mpFaceMesh = mp.solutions.face_mesh
 faceMesh = mpFaceMesh.FaceMesh(max_num_faces = 1)
@@ -30,7 +30,7 @@ while True:
     pTime = cTime
     cv2.putText(img, "FPS: "+ str(int(fps)), (10,65), cv2.FONT_HERSHEY_PLAIN, 5, (255,0,0), 5)
 
-    img = cv2.resize(img, (0,0), fx = 0.25, fy = 0.25)
+    # img = cv2.resize(img, (0,0), fx = 0.25, fy = 0.25)
     
     cv2.imshow("img", img)
     cv2.waitKey(1)
